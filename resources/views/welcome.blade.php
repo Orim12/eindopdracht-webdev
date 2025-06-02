@@ -13,6 +13,96 @@
         <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+        <!-- Fallback CSS for when Vite assets are unavailable -->
+        <style>
+            body {
+                background: #f8fafc;
+                color: #22223b;
+                font-family: 'Hanken Grotesk', 'Instrument Sans', Arial, sans-serif;
+                min-height: 100vh;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            header {
+                width: 100%;
+                max-width: 80rem;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.5rem 1rem;
+            }
+            nav {
+                display: flex;
+                gap: 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            nav a {
+                color: #22223b;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+            nav a:hover {
+                color: #e0aaff;
+            }
+            nav a:last-child {
+                margin-left: 1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                background: #e0aaff;
+                color: #22223b;
+                font-weight: 600;
+                box-shadow: 0 2px 8px 0 rgba(34,34,59,0.08);
+                transition: background 0.2s, color 0.2s;
+            }
+            nav a:last-child:hover {
+                background: #22223b;
+                color: #e0aaff;
+            }
+            main {
+                width: 100%;
+                max-width: 64rem;
+                margin: 0 auto;
+                padding: 0 1rem 4rem 1rem;
+                flex: 1 0 auto;
+            }
+            h2 {
+                font-size: 1.25rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+            .panel {
+                background: #fff;
+                border-radius: 1rem;
+                box-shadow: 0 2px 8px 0 rgba(34,34,59,0.08);
+                padding: 1.5rem;
+            }
+            .job-card, .job-card-wide {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .tag {
+                display: inline-block;
+                background: #e0aaff;
+                color: #22223b;
+                border-radius: 0.5rem;
+                padding: 0.25rem 0.75rem;
+                font-size: 0.95rem;
+                font-weight: 500;
+                margin-right: 0.25rem;
+                margin-bottom: 0.25rem;
+            }
+            @media (min-width: 768px) {
+                .grid-cols-2 {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 1.5rem;
+                }
+            }
+        </style>
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
