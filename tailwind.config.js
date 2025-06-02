@@ -8,9 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: '#123456', // Example brand color
         pixel: '#0A2239', // Custom color for Pixel Positions branding
         accent: '#F5B700', // Accent color
+        brand: '#0A2239', // Use pixel as the main brand color for consistency
+        muted: '#F4F7FA', // Light background for cards/sections
+        dark: '#1A1A1A', // For dark text or backgrounds
       },
       fontFamily: {
         sans: [
@@ -24,6 +26,14 @@ module.exports = {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+      },
+      borderRadius: {
+        xl: '1.25rem',
+        lg: '0.75rem',
+        DEFAULT: '0.5rem',
+      },
+      boxShadow: {
+        card: '0 2px 16px 0 rgba(10,34,57,0.08)',
       },
     },
   },

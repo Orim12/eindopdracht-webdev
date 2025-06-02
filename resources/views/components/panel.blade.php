@@ -1,3 +1,3 @@
-<div class="bg-white rounded-lg shadow p-6">
+<div class="bg-muted rounded-xl shadow-card p-8">
     {{ $slot }}
 </div>
