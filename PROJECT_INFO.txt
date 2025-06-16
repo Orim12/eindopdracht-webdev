@@ -1,0 +1,15 @@
+Project Pixel Positions - Features & Testinloggegevens
+
+Toegevoegde features:
+- Dynamische weergave van vacatures (positions) en tags op de homepage
+- Relaties tussen users, employers, positions en tags
+- Blade componenten voor job cards, panels en tags
+- Database seeders en factories voor realistische testdata
+- Custom kleuren en fonts met Tailwind CSS
+- Queue-tabellen hernoemd om conflicten te voorkomen
+
+Testinloggegevens:
+E-mail: test@example.com
+Wachtwoord: password
+
+Database: SQLite (bestand: database/database.sqlite)
