@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('job_tag', function (Blueprint $table) {
+        Schema::create('position_tag', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_id')->constrained()->onDelete('cascade');
+            $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
         });
     }
     public function down(): void
     {
-        Schema::dropIfExists('job_tag');
+        Schema::dropIfExists('position_tag');
     }
 };

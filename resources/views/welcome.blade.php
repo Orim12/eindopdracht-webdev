@@ -125,33 +125,29 @@
             <section>
                 <h2 class="text-2xl font-bold mb-4">Featured Jobs</h2>
                 <div class="space-y-6">
-                    <x-panel>
-                        <x-job-card-wide :employer="'Acme Corp'" :title="'Senior Laravel Developer'" :salary="'€5.000'" :tags="['Laravel', 'Remote', 'Full-time']" :logo-seed="'acme'" />
-                    </x-panel>
-                    <x-panel>
-                        <x-job-card-wide :employer="'Globex Inc.'" :title="'Frontend Engineer'" :salary="'€4.200'" :tags="['Vue', 'JavaScript', 'Remote']" :logo-seed="'globex'" />
-                    </x-panel>
+                    @foreach($featuredPositions as $position)
+                        <x-panel>
+                            <x-job-card-wide :employer="$position->employer->name" :title="$position->title" :salary="'€' . number_format($position->salary, 0, ',', '.')" :tags="$position->tags->pluck('name')->toArray()" :logo-seed="$position->employer->logo ?? 'default'" />
+                        </x-panel>
+                    @endforeach
                 </div>
             </section>
             <section>
                 <h2 class="text-2xl font-bold mb-4">Tags</h2>
                 <div class="flex flex-wrap gap-2">
-                    <x-tag label="Laravel" />
-                    <x-tag label="Vue" />
-                    <x-tag label="Remote" />
-                    <x-tag label="Full-time" />
-                    <x-tag label="JavaScript" />
+                    @foreach($tags as $tag)
+                        <x-tag :label="$tag->name" />
+                    @endforeach
                 </div>
             </section>
             <section>
                 <h2 class="text-2xl font-bold mb-4">Recent Jobs</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <x-panel>
-                        <x-job-card :employer="'Stark Industries'" :title="'Junior Backend Developer'" :salary="'€3.000'" :tags="['PHP', 'Full-time']" :logo-seed="'stark'" />
-                    </x-panel>
-                    <x-panel>
-                        <x-job-card :employer="'Wayne Enterprises'" :title="'UI/UX Designer'" :salary="'€3.500'" :tags="['Design', 'Remote']" :logo-seed="'wayne'" />
-                    </x-panel>
+                    @foreach($recentPositions as $position)
+                        <x-panel>
+                            <x-job-card :employer="$position->employer->name" :title="$position->title" :salary="'€' . number_format($position->salary, 0, ',', '.')" :tags="$position->tags->pluck('name')->toArray()" :logo-seed="$position->employer->logo ?? 'default'" />
+                        </x-panel>
+                    @endforeach
                 </div>
             </section>
         </main>

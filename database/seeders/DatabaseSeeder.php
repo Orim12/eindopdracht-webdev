@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Employer;
-use App\Models\Job;
+use App\Models\Position;
 use App\Models\Tag;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        User::factory()->create([
+        $testUser = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
@@ -26,10 +26,9 @@ class DatabaseSeeder extends Seeder
         Employer::factory()
             ->count(5)
             ->has(
-                Job::factory()
-                    ->count(5)
-                    ->afterCreating(function ($job) use ($tags) {
-                        $job->tags()->attach($tags->random(rand(2, 4)));
+                \Database\Factories\PositionFactory::new()->count(5)
+                    ->afterCreating(function ($position) use ($tags) {
+                        $position->tags()->attach($tags->random(rand(2, 4)));
                     })
             )
             ->create();

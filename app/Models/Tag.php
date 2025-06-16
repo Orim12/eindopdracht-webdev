@@ -11,4 +11,7 @@ class Tag extends Model
     public function jobs() {
         return $this->belongsToMany(Job::class);
     }
+    public function positions() {
+        return $this->belongsToMany(Position::class);
+    }
 }
