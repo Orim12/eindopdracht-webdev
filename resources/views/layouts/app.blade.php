@@ -14,23 +14,21 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+    <body class="bg-muted text-pixel font-sans min-h-screen flex flex-col">
+        <header class="w-full max-w-5xl mx-auto flex items-center justify-between py-6 px-4">
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-2xl font-bold text-pixel tracking-tight">Pixel Positions</a>
+            </div>
+            <nav class="flex gap-6 text-base font-medium">
+                <a href="{{ route('jobs') }}" class="hover:text-accent transition-colors">Jobs</a>
+                <a href="{{ route('careers') }}" class="hover:text-accent transition-colors">Careers</a>
+                <a href="{{ route('salaries') }}" class="hover:text-accent transition-colors">Salaries</a>
+                <a href="{{ route('companies') }}" class="hover:text-accent transition-colors">Companies</a>
+                <a href="#" class="ml-4 px-4 py-2 rounded-lg bg-accent text-pixel font-semibold shadow-card hover:bg-pixel hover:text-accent transition-colors">Post a Job</a>
+            </nav>
+        </header>
+        <main class="w-full max-w-4xl mx-auto space-y-10 px-4 pb-16">
+            @yield('content')
+        </main>
     </body>
 </html>

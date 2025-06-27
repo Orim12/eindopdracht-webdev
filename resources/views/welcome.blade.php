@@ -114,10 +114,10 @@
                 <span class="text-2xl font-bold text-pixel tracking-tight">Pixel Positions</span>
             </div>
             <nav class="flex gap-6 text-base font-medium">
-                <a href="#" class="hover:text-accent transition-colors">Jobs</a>
-                <a href="#" class="hover:text-accent transition-colors">Careers</a>
-                <a href="#" class="hover:text-accent transition-colors">Salaries</a>
-                <a href="#" class="hover:text-accent transition-colors">Companies</a>
+                <a href="{{ route('jobs') }}" class="hover:text-accent transition-colors">Jobs</a>
+                <a href="{{ route('careers') }}" class="hover:text-accent transition-colors">Careers</a>
+                <a href="{{ route('salaries') }}" class="hover:text-accent transition-colors">Salaries</a>
+                <a href="{{ route('companies') }}" class="hover:text-accent transition-colors">Companies</a>
                 <a href="#" class="ml-4 px-4 py-2 rounded-lg bg-accent text-pixel font-semibold shadow-card hover:bg-pixel hover:text-accent transition-colors">Post a Job</a>
             </nav>
         </header>
